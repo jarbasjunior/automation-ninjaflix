@@ -135,6 +135,6 @@
     ```
   - Access the nflix-api-gateway in the browser with the URL: `localhost:8080` for see api web in execution;
 
-  ### For list your containers execute: `docker ps`.
+For list your containers execute: `docker ps`.
 
-  ### For see docker network **skynet** execute: `docker network inspect skynet`. For more details about docker networks, click [here](https://docs.docker.com/network/network-tutorial-standalone).
+For see docker network **skynet** execute: `docker network inspect skynet`. For more details about docker networks, click [here](https://docs.docker.com/network/network-tutorial-standalone).
