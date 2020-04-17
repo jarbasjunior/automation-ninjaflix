@@ -9,22 +9,14 @@ Feature: Login
     Then I must be authenticated
     And I must be see 'Tony Stark' in the logged area
 
-  Scenario: Invalid password
-    Given I login with 'tony@stark.com' and 'asdfgh'
+  Scenario Outline: Invalid password
+    Given I login with <email> and <password>
     Then I must not be authenticated
-    And I must be see the alert message 'Usuário e/ou senha inválidos'
+    And I must be see the alert message <message>
 
-  Scenario: User not exists
-    Given I login with 'user_not_exists@email.com' and '123456'
-    Then I must not be authenticated
-    And I must be see the alert message 'Usuário e/ou senha inválidos'
-
-  Scenario: E-mail not provided
-    Given I login with '' and '123456'
-    Then I must not be authenticated
-    And I must be see the alert message 'Opps. Cadê o email?'
-
-  Scenario: Password not provided
-    Given I login with 'tony@stark.com' and ''
-    Then I must not be authenticated
-    And I must be see the alert message 'Opps. Cadê a senha?'
+    Examples:
+      | email                       | password | message                        |
+      | 'tony@stark.com'            | 'skjdfa' | 'Usuário e/ou senha inválidos' |
+      | 'user_not_exists@email.com' | '123456' | 'Usuário e/ou senha inválidos' |
+      | ''                          | '123456' | 'Opps. Cadê o email?'          |
+      | 'tony@stark.com'            | ''       | 'Opps. Cadê a senha?'          |
