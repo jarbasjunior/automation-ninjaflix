@@ -1,0 +1,12 @@
+class SideBarPage
+  include Capybara::DSL
+
+  def find_user_name
+    find(:xpath, "//div[@class='user']").text
+  end
+
+  def find_user_token
+    self.find_user_name
+    page.execute_script('return window.localStorage.getItem("default_auth_token");')
+  end
+end
