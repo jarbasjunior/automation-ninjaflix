@@ -15,4 +15,12 @@ class LoginPage
     self.find_user_name
     page.execute_script('return window.localStorage.getItem("default_auth_token");')
   end
+
+  def user_token_nil?
+    page.execute_script('return window.localStorage.getItem("default_auth_token");')
+  end
+
+  def check_alert_message
+    find(:xpath, "//div[@class='card-body']/div[3]/span")
+  end
 end
