@@ -6,8 +6,8 @@ Feature: Login
 
   Scenario: Access
     Given I login with 'tony@stark.com' and '123456'
-    Then I must be authenticated
     And I must be see 'Tony Stark' in the logged area
+    Then I must be authenticated
 
   Scenario Outline: Invalid password
     Given I login with <email> and <password>

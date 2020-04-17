@@ -7,6 +7,6 @@ class SideBarPage
 
   def find_user_token
     self.find_user_name
-    page.execute_script('return window.localStorage.getItem("default_auth_token");')
+    Self.find_user_token
   end
 end
