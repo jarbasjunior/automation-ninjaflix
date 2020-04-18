@@ -1,8 +1,9 @@
 Before do
+  @sidebar = SideBar.new
+  @sweet_alert = SweetAlert.new
   @login_page = LoginPage.new
   @add_movie_page = AddMoviePage.new
   @list_movie_page = ListMoviePage.new
-  @sidebar_page = SideBarPage.new
   page.current_window.resize_to(1440, 900)
 end
 

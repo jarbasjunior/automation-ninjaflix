@@ -1,4 +1,4 @@
-class SideBarPage
+class SideBar
   include Capybara::DSL
 
   def find_user_name

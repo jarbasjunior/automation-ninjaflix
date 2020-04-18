@@ -37,7 +37,7 @@ When('I request deletion') do
 end
 
 When('I confirm deletion') do
-  @list_movie_page.confirm_deletion
+  @sweet_alert.confirm
 end
 
 Then('this item must be removed in the catalog') do
@@ -45,7 +45,7 @@ Then('this item must be removed in the catalog') do
 end
 
 When('I cancel deletion') do
-  @list_movie_page.cancel_deletion
+  @sweet_alert.cancel
 end
 
 Then('this item be remain in the catalog') do
