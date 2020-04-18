@@ -38,6 +38,14 @@ dbz:
   cast: []
   overview: ""
   cover: "dpz.jpg"
+10_coisas:
+  title: '10 coisa que eu odeio em você'
+  status: 'Disponível'
+  year: 1999
+  release_date: '10/07/1999'
+  cast: []
+  overview: ""
+  cover: "10-coisas.jpg"
 no_title:
   title: ''
   status: 'Em breve'

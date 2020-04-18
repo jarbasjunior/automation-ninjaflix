@@ -43,3 +43,12 @@ end
 Then('this item must be removed in the catalog') do
   expect(@list_movie_page.has_no_movie?(@movies['title'])).to be true
 end
+
+When('I cancel deletion') do
+  @list_movie_page.cancel_deletion
+end
+
+Then('this item be remain in the catalog') do
+  expect(@list_movie_page.has_movie?(@movies['title'])).to be true
+end
+

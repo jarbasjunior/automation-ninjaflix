@@ -21,10 +21,18 @@ class ListMoviePage
   def confirm_deletion
     find('.swal2-confirm').click
     wait_load_movies
+  end  
+
+  def cancel_deletion
+    find('.swal2-cancel').click
   end
 
   def has_no_movie?(title)
-    ap page.has_no_css?('table tbody tr', text: title)
+    page.has_no_css?('table tbody tr', text: title)
+  end
+
+  def has_movie?(title)
+    page.has_css?('table tbody tr', text: title)
   end
 
   def wait_load_movies
