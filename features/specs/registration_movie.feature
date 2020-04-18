@@ -28,12 +28,17 @@ Feature: Registration Movie
     Then I must be see a <notification>
 
     Examples:
-      | code              | notification                                    |
-      | 'no_title'        | 'Oops - Filme sem título. Pode isso Arnaldo?'   |
-      | 'no_status'       | 'Oops - O status deve ser informado!'           |
-      | 'no_year'         | 'Oops - Faltou o ano de lançamento também!'     |
+      | code              | notification                                   |
+      | 'no_title'        | 'Oops - Filme sem título. Pode isso Arnaldo?'  |
+      | 'no_status'       | 'Oops - O status deve ser informado!'          |
+      | 'no_year'         | 'Oops - Faltou o ano de lançamento também!'    |
       | 'no_release_date' | 'Oops - Quase lá, só falta a data de estréia!' |
 
   Scenario: Duplicated
-    Given that 'Deeadpool 2' already registered
-    Then I must be see notification 'Oops - Esse título já existe no Ninjaflix.'
+    The catalog manager tries to register a new movie, but the title is already
+    registered and the system notifies the user that the title is already exists
+
+    Given that 'deadpool2' is a new movie
+    But this movies is already exists
+    When I make the register this movie
+    Then I must be see a 'Oops - Este título já existe no Ninjaflix.'

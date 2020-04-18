@@ -4,6 +4,10 @@ Given('that {string} is a new movie') do |movie_code|
   Database.new.delete_movie(@movies['title'])
 end
 
+Given('this movies is already exists') do
+  Database.new.insert_movie(@movies)
+end
+
 When('I make the register this movie') do
   @list_movie_page.go_add_movie
   @add_movie_page.add_movie(@movies)
