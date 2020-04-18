@@ -30,6 +30,14 @@ deadpool2:
   cast: ['Ryan Reynolds', 'Josh Brolin']
   overview: "O supersoldado Cable vem do futuro com a missão de detonar um jovem mutante e o Deadpool deve salvá-lo."
   cover: "dp2.jpg"
+dbz:
+  title: 'Dragon Ball Evolution'
+  status: 'Disponível'
+  year: 2009
+  release_date: '10/07/2009'
+  cast: []
+  overview: ""
+  cover: "dpz.jpg"
 no_title:
   title: ''
   status: 'Em breve'

@@ -24,3 +24,22 @@ end
 Then('I must be see a {string}') do |expect_alert|
   expect(@add_movie_page.alert_text).to eql expect_alert
 end
+
+Given('that {string} is of the catalog') do |movie_code|
+  steps %{
+    Given that '#{movie_code}' is a new movie
+    And this movies is already exists
+  }
+end
+
+When('I request deletion') do
+  @list_movie_page.remove_movie(@movies['title'])
+end
+
+When('I confirm deletion') do
+  @list_movie_page.confirm_deletion
+end
+
+Then('this item must be removed in the catalog') do
+  expect(@list_movie_page.has_no_movie?(@movies['title'])).to be true
+end
