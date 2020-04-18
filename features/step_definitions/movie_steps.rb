@@ -1,6 +1,7 @@
 Given('that {string} is a new movie') do |movie_code|
   file = YAML.load_file(File.join(Dir.pwd, 'features/support/fixtures/movies.yaml'))
   @movies = file[movie_code]
+  Database.new.delete_movie(@movies['title'])
 end
 
 When('I make the register this movie') do
