@@ -7,6 +7,5 @@ class SideBarPage
 
   def find_user_token
     self.find_user_name
-    Self.find_user_token
   end
 end
