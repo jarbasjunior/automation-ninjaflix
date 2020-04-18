@@ -8,8 +8,21 @@ require_relative 'helpers'
 
 World(Helpers)
 
+CONFIG = YAML.load_file(File.join(Dir.pwd, "features/support/config/#{ENV['ENV_TYPE']}.yaml"))
+
+case ENV['BROWSER']
+when 'chrome'
+  @driver = :selenium_chrome
+when 'firefox'
+  @driver = :selenium
+when 'chrome_headless'
+  @driver = :selenium_chrome_headless 
+when 'firefox_headless'
+  @driver = :selenium_headless
+end
+
 Capybara.configure do |config|
-  config.default_driver = :selenium_chrome
-  config.app_host = 'http://localhost:8080'
+  config.default_driver = @driver
+  config.app_host = CONFIG['url']
   config.default_max_wait_time = 5
 end
