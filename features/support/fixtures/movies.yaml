@@ -22,4 +22,36 @@ jocker:
   cast: ['Joaquin Phoenix']
   overview: "O comediante falido Artur Fleck encontra violentos bandidos pelas ruas de Gotham City."
   cover: "coringa.jpg"
+no_title:
+  title: ''
+  status: 'Em breve'
+  year: 2019
+  release_date: '01/12/2020'
+  cast: []
+  overview: ""
+  cover: ""
+no_status:
+  title: 'New Movie'
+  status: ''
+  year: 2020
+  release_date: '01/12/2020'
+  cast: []
+  overview: ""
+  cover: ""
+no_year:
+  title: 'New Movie'
+  status: 'Em breve'
+  year: ''
+  release_date: '01/12/2020'
+  cast: []
+  overview: ""
+  cover: ""
+no_release_date:
+  title: 'New Movie'
+  status: 'Em breve'
+  year: 2020
+  release_date: ''
+  cast: []
+  overview: ""
+  cover: ""
   

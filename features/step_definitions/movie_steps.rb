@@ -15,3 +15,7 @@ Then('I must be see a new movie in the list') do
   expect(record[2]).to eql @movies['year'].to_s
   expect(record[3]).to have_text @movies['release_date']
 end
+
+Then('I must be see a {string}') do |expect_alert|
+  expect(@add_movie_page.alert_text).to eql expect_alert
+end

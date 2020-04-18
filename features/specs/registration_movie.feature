@@ -19,21 +19,20 @@ Feature: Registration Movie
       | 'spider'   |
       | 'jocker'   |
 
-  Scenario: Without name
-    When I try to register a movie without name
-    Then I must be see the notification 'Oops - Filme sem título. Pode isso Arnaldo?'
+  Scenario Outline: Required fields
+    The catalog manager tries to register a new movie, but he forgets to fill some
+    of requireds fields. Next, the system show displays a notification to the user
 
-  Scenario: Without status
-    When I try to register a movie without status
-    Then I must be see notification 'Oops - O status deve ser informado!'
+    Given that <code> is a new movie
+    When I make the register this movie
+    Then I must be see a <notification>
 
-  Scenario: Release year not informed
-    Given I try to register a movie without release year
-    Then I must be see notification 'Oops - Faltou o ano de lançamento também!'
-
-  Scenario: Release date not informed
-    Given I try to register a movie without release date
-    Then I must be see notification 'Oops - Quase lá, só faltou a data de estréia!'
+    Examples:
+      | code              | notification                                    |
+      | 'no_title'        | 'Oops - Filme sem título. Pode isso Arnaldo?'   |
+      | 'no_status'       | 'Oops - O status deve ser informado!'           |
+      | 'no_year'         | 'Oops - Faltou o ano de lançamento também!'     |
+      | 'no_release_date' | 'Oops - Quase lá, só falta a data de estréia!' |
 
   Scenario: Duplicated
     Given that 'Deeadpool 2' already registered
