@@ -4,3 +4,4 @@ database.yml
 *.png
 *.gif
 *.html
+*.json
