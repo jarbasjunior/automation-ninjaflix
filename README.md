@@ -192,7 +192,7 @@
   ```
   - Check configuration in the browser with the url: http://localhost:8080, your must be see the image bellow:
 
-    (<img src="https://jenkins.io/doc/book/resources/tutorials/setup-jenkins-01-unlock-jenkins-page.jpg" width="700" height="500">)
+    <img src="https://jenkins.io/doc/book/resources/tutorials/setup-jenkins-01-unlock-jenkins-page.jpg" width="700" height="500">
 
   - Execute the command: `docker exec -it jenkins-blueocean bash`, next, execute: `cat /var/jenkins_home/secrets/initialAdminPassword`. Your must be have the following output:
   ```
@@ -204,11 +204,11 @@
 
   - On the page `Customize Jenkins`, click on the `Install suggested plugins` cards, for Jenkins to download the basic plugins;
 
-    (<img src="https://assets.digitalocean.com/articles/jenkins-install-ubuntu-1804/customize_jenkins_screen_two.png" width="700" height="500">)
+    <img src="https://assets.digitalocean.com/articles/jenkins-install-ubuntu-1804/customize_jenkins_screen_two.png" width="700" height="500">
 
   - Create your first admin user, in this example we will use `devops` for user, password, full name, the e-mail choose one of your preference. Next, click on the `Save and Continued` button;
 
-    (<img src="https://assets.digitalocean.com/articles/jenkins-install-ubuntu-1804/jenkins_create_user.png" width="700" height="500">)
+    <img src="https://assets.digitalocean.com/articles/jenkins-install-ubuntu-1804/jenkins_create_user.png" width="700" height="500">
 
   - Check the `Jenkins url` (http://localhost:8080), click on the `Save and Finished` button, next `Start using Jenkins` and Jenkins local settings will be completed.
     
