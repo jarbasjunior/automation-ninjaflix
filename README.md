@@ -135,6 +135,84 @@
     ```
   - Access the nflix-api-gateway in the browser with the URL: `localhost:8080` for see api web in execution;
 
+### Configuration for worker with Jenkins
+
+  - Remove container `nflix-web`
+  ```
+  docker container rm -f nflix-web
+  ```
+  - Download the **api web 2** image
+  ```
+  docker pull papitoio/nflix-web2
+  ```
+  - Check the image download with `docker images` and create database container within **skynet** network using **name repository** or **image id**
+  ```
+  docker run --name nflix-web --network=skynet -e "VUE_APP_API=http://nflix-api-gateway:3000" -p 8000:8000 -d papitoio/nflix-web2
+  ```
+  - Access the nflix-api-gateway in the browser with the URL: `localhost:8000` for see api web in execution;
+
+  - Create `alias` from the `/etc/hosts` file inthe your pc, for access your containers;
+  ```
+  sudo nano /etc/hosts
+  ```
+  - Insert at the end of the file:
+  ```
+  127.0.0.1       pgdb 
+  127.0.0.1       pgadmin
+  127.0.0.1       nflix-web
+  127.0.0.1       nflix-api-users
+  127.0.0.1       nflix-api-movies
+  127.0.0.1       nflix-api-gateway
+  ```
+  - Save the `hosts` file and check in the browser, the url's following;
+    
+    - http://pgadmin:15432
+    - http://nflix-api-users:3001/apidoc
+    - http://nflix-api-movies:3002/apidoc
+    - http://nflix-api-gateway:3000
+    - http://nflix-web:8000
+
+#### Configuration Docker Jenkins
+
+  - Download the **jenkinsci/blueocean** image
+  ```
+  docker pull jenkinsci/blueocean
+  ```
+  - Check the image download with `docker images` and create a volume to persist Jenkins data
+  ```
+  docker volume create jenkins-data
+  ```
+  - Create Jenkins container within **skynet** network with **jenkins-data** volume using **name repository** or **image id**
+  ```
+  docker container run --name jenkins-blueocean --detach \
+  --network skynet -u root \
+  --volume jenkins-data:/var/jenkins_home \
+  --volume /var/run/docker.sock:/var/run/docker.sock \
+  --publish 8080:8080 --publish 50000:50000 jenkinsci/blueocean
+  ```
+  - Check configuration in the browser with the url: http://localhost:8080, your must be see the image bellow:
+
+    (<img src="https://jenkins.io/doc/book/resources/tutorials/setup-jenkins-01-unlock-jenkins-page.jpg" width="700" height="500">)
+
+  - Execute the command: `docker exec -it jenkins-blueocean bash`, next, execute: `cat /var/jenkins_home/secrets/initialAdminPassword`. Your must be have the following output:
+  ```
+  ~ docker exec -it jenkins-blueocean bash
+  bash-4.4# cat /var/jenkins_home/secrets/initialAdminPassword
+  f281a2e3abdd4f9b892a2e982b7f3334
+  ```
+  - Copy the password generated on your terminal and paste it in the `Administrator password` field from: http://localhost:8080, and click on the `Continue` button;
+
+  - On the page `Customize Jenkins`, click on the `Install suggested plugins` cards, for Jenkins to download the basic plugins;
+
+    (<img src="https://assets.digitalocean.com/articles/jenkins-install-ubuntu-1804/customize_jenkins_screen_two.png" width="700" height="500">)
+
+  - Create your first admin user, in this example we will use `devops` for user, password, full name, the e-mail choose one of your preference. Next, click on the `Save and Continued` button;
+
+    (<img src="https://assets.digitalocean.com/articles/jenkins-install-ubuntu-1804/jenkins_create_user.png" width="700" height="500">)
+
+  - Check the `Jenkins url` (http://localhost:8080), click on the `Save and Finished` button, next `Start using Jenkins` and Jenkins local settings will be completed.
+    
+
 For list your containers execute: `docker ps`.
 
 For see docker network **skynet** execute: `docker network inspect skynet`. For more details about docker networks, click [here](https://docs.docker.com/network/network-tutorial-standalone).
