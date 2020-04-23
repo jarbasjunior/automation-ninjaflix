@@ -1,7 +1,3 @@
 database.yml
-*.jpg
-*.jpeg
-*.png
-*.gif
-*.html
-*.json
+log/*.html
+log/*.json

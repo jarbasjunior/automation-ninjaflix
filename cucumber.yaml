@@ -1,14 +1,14 @@
 ---
   default: -p dev -p chrome_headless -p html
-  ci: -p dev -p chrome -p json
+  ci: -p dev -p chrome_headless -p json
   dev: ENV_TYPE=dev
   hmg: ENV_TYPE=hmg
   bdd: --format pretty
   progress: --format progress
   html: --format html --out=log/report.html
   chrome: -p progress BROWSER=chrome
-  chrome_headless: -p progress BROWSER=chrome_headless
+  chrome_headless: -p bdd BROWSER=chrome_headless
   firefox: -p progress BROWSER=firefox
-  firefox_headless: -p progress BROWSER=firefox_headless
+  firefox_headless: -p bdd BROWSER=firefox_headless
   html: --format html --out=log/report.html
   json: --format json --out=log/report.json
