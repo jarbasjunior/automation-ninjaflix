@@ -15,7 +15,7 @@ end
 
 After do |scenario|
   if scenario.failed?
-    screenshot_file = page.save_screenshot('log/schreenshot.png')
+    screenshot_file = page.save_screenshot("log/screenshots/#{scenario.name}_#{scenario.__id__}.png")
     image_base64 = Base64.encode64(File.open(screenshot_file, 'rb').read)
     embed(image_base64, 'image/png', 'Evidence')
   end
