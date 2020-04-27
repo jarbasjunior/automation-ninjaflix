@@ -29,7 +29,7 @@ Feature: Registration Movie
 
     Examples:
       | code              | notification                                   |
-      | 'no_title'        | 'Oops - Filme sem titulo. Pode isso Arnaldo?'  |
+      | 'no_title'        | 'Oops - Filme sem título. Pode isso Arnaldo?'  |
       | 'no_status'       | 'Oops - O status deve ser informado!'          |
       | 'no_year'         | 'Oops - Faltou o ano de lançamento também!'    |
       | 'no_release_date' | 'Oops - Quase lá, só falta a data de estréia!' |
@@ -41,4 +41,4 @@ Feature: Registration Movie
     Given that 'deadpool2' is a new movie
     But this movies is already exists
     When I make the register this movie
-    Then I must be see a 'Oops - Este titulo já existe no Ninjaflix.'
+    Then I must be see a 'Oops - Este título já existe no Ninjaflix.'
