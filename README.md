@@ -41,7 +41,7 @@
   1 - Go to the ChromeDriver releases page. Find the latest version of the driver for your platform and download it. For example:
 
   ```
-  wget https://chromedriver.storage.googleapis.com/81.0.4044.69/chromedriver_linux64.zip
+  wget https://chromedriver.storage.googleapis.com/86.0.4240.22/chromedriver_linux64.zip
   ```
 
   2 - Extract the file with:
