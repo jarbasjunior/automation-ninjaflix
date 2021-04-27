@@ -15,7 +15,7 @@
   1 - Go to the geckodriver releases page. Find the latest version of the driver for your platform and download it. For example:
 
   ```
-  wget https://github.com/mozilla/geckodriver/releases/download/v0.26.0/geckodriver-v0.26.0-linux64.tar.gz
+  wget https://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip
   ```
 
   2 - Extract the file with:
